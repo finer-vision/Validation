@@ -47,7 +47,7 @@ export default class Rule {
             throw new Error(`Rule ${rule} does not exist.`);
         }
 
-        // Add input to beginning or args array.
+        // Add input to beginning of args array.
         args.unshift(Utils.clean(input));
 
         // Add message to end of array.
