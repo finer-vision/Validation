@@ -2,7 +2,7 @@
 
 Laravel inspired, dependency-free, JavaScript validation library.
 
-### Usage
+## Usage
 
 ```js
 import Validation from "fv-validation";
@@ -35,39 +35,39 @@ console.log(validation.getErrors());
 console.log(validation.getErrors('email'));
 ```
 
-### Available Rules
+## Available Rules
 
-##### Required
+#### Required
 Value length must be greater than zero.
 
 Usage: 'required'
 
-##### Min (number)
+#### Min (number)
 Value length must be equal to or greater than the given number.
 
 Usage: 'min:5'
 
-##### Max (number)
+#### Max (number)
 Value length must be equal to or less than the given number.
 
 Usage: 'max:5'
 
-##### Email
+#### Email
 Value must be an email.
 
 Usage: 'email'
 
-##### Pattern (Regex)
+#### Pattern (Regex)
 Value must match the given regex.
 
 Usage: 'pattern:/d+/'
 
-##### In (Values)
+#### In (Values)
 Value must be equal to the given values.
 
 Usage: 'in:1|2|3'
 
-##### URL (Values)
+#### URL (Values)
 Value must be a valid URL.
 
 Usage: 'url'
