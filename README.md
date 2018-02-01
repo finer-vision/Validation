@@ -32,9 +32,8 @@ validation.validate(input, rules);
 console.log(validation.getErrors());
 
 // All errors for single field
-console.log(validation.getErrors());
+console.log(validation.getErrors('email'));
 ```
-
 
 ### Available Rules
 
