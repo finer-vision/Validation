@@ -66,3 +66,8 @@ Usage: 'pattern:/d+/'
 Value must be equal to the given values.
 
 Usage: 'in:1|2|3'
+
+##### URL (Values)
+Value must be a valid URL.
+
+Usage: 'url'
