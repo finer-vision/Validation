@@ -19,14 +19,12 @@ export default {
     },
     email(input, name, message) {
         return {
-            // TODO: Add regex test.
             passed: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(input),
             error: message || `The ${name} field is not a valid email`
         };
     },
     pattern(input, name, regex, message) {
         return {
-            // TODO: Add regex test.
             passed: new RegExp(regex).test(input),
             error: message || `The ${name} field does not match the pattern ${regex}`
         };
