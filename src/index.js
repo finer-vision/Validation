@@ -1,3 +1,3 @@
 import Validation from "./Validation";
 
-export default Validation;
+module.exports = Validation;
