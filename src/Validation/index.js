@@ -31,7 +31,7 @@ export default class Validation {
         }
 
         if (this.fields.indexOf(field) === -1) {
-            throw new Error(`Field ${field} does not exist`);
+            return [];
         }
 
         return this.verdict[field].errors;
@@ -46,7 +46,7 @@ export default class Validation {
      */
     getError(field) {
         if (this.fields.indexOf(field) === -1) {
-            throw new Error(`Field ${field} does not exist`);
+            return '';
         }
 
         return this.verdict[field].errors[0] || '';
