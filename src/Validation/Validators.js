@@ -52,5 +52,17 @@ export default {
             passed: /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/.test(input),
             error: message || `The ${name} field must be a valid US mobile number`
         };
+    },
+    uk_postcode(input, name, message) {
+        return {
+            passed: /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/.test(input),
+            error: message || `The ${name} field must be a valid UK postcode`
+        };
+    },
+    us_postcode(input, name, message) {
+        return {
+            passed: /^\d{5}(?:[-\s]\d{4})?$/.test(input),
+            error: message || `The ${name} field must be a valid US postcode`
+        };
     }
 }
