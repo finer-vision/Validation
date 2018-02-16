@@ -1,6 +1,10 @@
 import Validators from "./Validators";
 import Utils from "./Utils";
 
+const RULE_SEPARATOR = '|';
+const PARAMETER_SEPARATOR = ':';
+const ARGUMENT_SEPARATOR = ',';
+
 export default class Rule {
     /**
      * Parse the rule string (e.g. required,email,max:255)
@@ -14,9 +18,9 @@ export default class Rule {
         const rules = {};
 
         // Construct all rules, with their args.
-        rulesString.split(',').map(ruleString => {
-            const args = ruleString.split(':').map(arg => {
-                const array = arg.split('|');
+        rulesString.split(RULE_SEPARATOR).map(ruleString => {
+            const args = ruleString.split(PARAMETER_SEPARATOR).map(arg => {
+                const array = arg.split(ARGUMENT_SEPARATOR);
 
                 if (array.length === 1) {
                     return arg;
