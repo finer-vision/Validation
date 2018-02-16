@@ -71,3 +71,24 @@ Usage: 'in:1|2|3'
 Value must be a valid URL.
 
 Usage: 'url'
+
+#### UK Mobile
+Values must me a valid UK mobile number.
+
+Usage: 'uk_mobile'
+
+#### US Mobile
+Values must me a valid US mobile number.
+
+Usage: 'us_mobile'
+
+#### UK Postcode
+Values must me a valid UK postcode.
+
+Usage: 'uk_postcode'
+
+#### US Postcode
+Values must me a valid US postcode.
+
+Usage: 'us_postcode'
+
