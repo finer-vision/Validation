@@ -21,8 +21,8 @@ const input = {
 };
 
 const rules = {
-    name: 'required,max:255,in:1|2|3',
-    email: 'required,email,max:255'
+    name: 'required|max:255|in:1,2,3',
+    email: 'required|email|max:255'
 };
 
 const validation = new Validation;
@@ -65,7 +65,7 @@ Usage: 'pattern:/d+/'
 #### In (Values)
 Value must be equal to the given values.
 
-Usage: 'in:1|2|3'
+Usage: 'in:1,2,3'
 
 #### URL (Values)
 Value must be a valid URL.
