@@ -8,6 +8,7 @@
     "build-examples": "node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "test": "./node_modules/.bin/mocha --compilers js:babel-core/register tests/",
     "tdd": "./node_modules/.bin/mocha --watch --compilers js:babel-core/register tests/",
+    "coverage": "./node_modules/.bin/nyc ./node_modules/.bin/mocha --compilers js:babel-core/register tests/",
     "prepublishOnly": "node_modules/babel-cli/bin/babel.js src/ -d build"
   },
   "repository": {
@@ -23,6 +24,7 @@
     "babel-preset-react": "^6.24.1",
     "laravel-mix": "^2.0.0",
     "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
