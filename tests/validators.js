@@ -157,4 +157,18 @@ describe('Validators', () => {
             assert.equal(validator.verdict.field[rule].passed, false);
         });
     });
+
+    describe('Checked', () => {
+        const rule = 'checked';
+
+        it('passes validation if the field is checked', () => {
+            const validator = validation.validate({field: true}, {field: 'checked'});
+            assert.equal(validator.verdict.field[rule].passed, true);
+        });
+
+        it('fails validation if the field is not checked', () => {
+            const validator = validation.validate({field: false}, {field: 'checked'});
+            assert.equal(validator.verdict.field[rule].passed, false);
+        });
+    });
 });

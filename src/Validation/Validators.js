@@ -64,5 +64,11 @@ export default {
             passed: /^\d{5}(?:[-\s]\d{4})?$/.test(input),
             error: message || `The ${name} field must be a valid US postcode`
         };
+    },
+    checked(input, name, message) {
+        return {
+            passed: typeof input === 'string' ? input === 'true' : Boolean(input),
+            error: message || `The ${name} field must be checked`
+        };
     }
 }
