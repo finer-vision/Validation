@@ -8,6 +8,7 @@ class Basic extends Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.check = this.check.bind(this);
 
         this.validation = new Validation();
 
@@ -15,7 +16,8 @@ class Basic extends Component {
             errors: [],
             form: {
                 name: '',
-                email: ''
+                email: '',
+                remember: false
             }
         };
     }
@@ -26,6 +28,7 @@ class Basic extends Component {
         const validator = this.validation.validate(this.state.form, {
             name: 'required|in:test,1|max:255',
             email: 'required|email|max:255',
+            remember: 'checked'
         });
 
         this.setState({errors: validator.errors});
@@ -43,6 +46,12 @@ class Basic extends Component {
         ))
     }
 
+    check(event) {
+        const {form} = this.state;
+        form[event.target.name] = event.target.checked;
+        this.setState({form});
+    }
+
     render() {
         return (
             <form onSubmit={this.onSubmit} noValidate autoComplete="off">
@@ -55,6 +64,7 @@ class Basic extends Component {
                     placeholder="Name"
                     onChange={this.onChange}
                 />
+                <br/>
                 <input
                     name="email"
                     type="email"
@@ -62,6 +72,17 @@ class Basic extends Component {
                     placeholder="Email"
                     onChange={this.onChange}
                 />
+                <br/>
+                <label>
+                    Remember Me&nbsp;
+                    <input
+                        name="remember"
+                        type="checkbox"
+                        value={this.state.form.remember}
+                        onChange={this.check}
+                    />
+                </label>
+
                 <button type="submit">Submit</button>
             </form>
         );
