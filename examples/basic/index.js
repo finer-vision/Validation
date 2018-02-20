@@ -24,7 +24,7 @@ class Basic extends Component {
         event.preventDefault();
 
         const validator = this.validation.validate(this.state.form, {
-            name: 'required|max:255',
+            name: 'required|in:test,1|max:255',
             email: 'required|email|max:255',
         });
 
