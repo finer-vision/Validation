@@ -19,18 +19,10 @@ export default class Rule {
 
         // Construct all rules, with their args.
         rulesString.split(RULE_SEPARATOR).map(ruleString => {
-            const args = ruleString.split(PARAMETER_SEPARATOR).map(arg => {
-                const array = arg.split(ARGUMENT_SEPARATOR);
-
-                if (array.length === 1) {
-                    return arg;
-                }
-
-                return array;
-            });
+            const args = ruleString.split(PARAMETER_SEPARATOR).map(arg => arg.split(ARGUMENT_SEPARATOR));
 
             // Add rule, with args, to rules object.
-            rules[args[0]] = args.length > 1 ? args.slice(1, args.length) : [];
+            rules[args[0]] = args.slice(1, args.length);
             rules[args[0]].unshift(name);
         });
 
