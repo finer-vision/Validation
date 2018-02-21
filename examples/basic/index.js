@@ -17,7 +17,8 @@ class Basic extends Component {
             form: {
                 name: '',
                 email: '',
-                remember: false
+                remember: false,
+                description: ''
             }
         };
     }
@@ -28,7 +29,8 @@ class Basic extends Component {
         const validator = this.validation.validate(this.state.form, {
             name: 'required|in:test,1|max:255',
             email: 'required|email|max:255',
-            remember: 'checked'
+            remember: 'checked',
+            description: 'required|words:3'
         });
 
         this.setState({errors: validator.errors});
@@ -82,6 +84,9 @@ class Basic extends Component {
                         onChange={this.check}
                     />
                 </label>
+                <br/>
+                <textarea name="description" onChange={this.onChange} value={this.state.form.description}/>
+                <br/>
 
                 <button type="submit">Submit</button>
             </form>
