@@ -171,4 +171,32 @@ describe('Validators', () => {
             assert.equal(validator.verdict.field[rule].passed, false);
         });
     });
+
+    describe('Words Min', () => {
+        const rule = 'words_min';
+
+        it('passes validation if the field has 3 or more words', () => {
+            const validator = validation.validate({field: 'one two three'}, {field: 'words_min:3'});
+            assert.equal(validator.verdict.field[rule].passed, true);
+        });
+
+        it('fails validation if the field has less than 3 words', () => {
+            const validator = validation.validate({field: 'one two'}, {field: 'words_min:3'});
+            assert.equal(validator.verdict.field[rule].passed, false);
+        });
+    });
+
+    describe('Words Max', () => {
+        const rule = 'words_max';
+
+        it('passes validation if the field has 3 or less words', () => {
+            const validator = validation.validate({field: 'one two three'}, {field: 'words_max:3'});
+            assert.equal(validator.verdict.field[rule].passed, true);
+        });
+
+        it('fails validation if the field has more than 3 words', () => {
+            const validator = validation.validate({field: 'one two three four'}, {field: 'words_max:3'});
+            assert.equal(validator.verdict.field[rule].passed, false);
+        });
+    });
 });

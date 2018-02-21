@@ -70,5 +70,17 @@ export default {
             passed: typeof input === 'string' ? input === 'true' : Boolean(input),
             error: message || `The ${name} field must be checked`
         };
+    },
+    words_min(input, name, value, message) {
+        return {
+            passed: input.split(/\s+/).length >= value,
+            error: message || `The ${name} field must be ${value} or more words`
+        };
+    },
+    words_max(input, name, value, message) {
+        return {
+            passed: input.split(/\s+/).length <= value,
+            error: message || `The ${name} field must be ${value} or less words`
+        };
     }
 }
