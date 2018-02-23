@@ -1,7 +1,8 @@
 const mix = require('laravel-mix');
 
 const examples = [
-    'basic'
+    'basic',
+    'custom_rule'
 ];
 
 examples.map(example => {

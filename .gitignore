@@ -4,3 +4,4 @@ build/
 .DS_Store
 *.log
 .nyc_output/
+mix-manifest.json
