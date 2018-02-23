@@ -40,7 +40,10 @@ export default class Rule {
      */
     static test(rule, args, input, message) {
         if (!Validators.hasOwnProperty(rule)) {
-            throw new Error(`Rule ${rule} does not exist.`);
+            return {
+                padded: false,
+                error: 'Failed validation'
+            };
         }
 
         // Add input to beginning of args array.
