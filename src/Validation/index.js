@@ -45,10 +45,9 @@ export default class Validation {
      * @returns {String}
      */
     getError(field) {
-        if (this.fields.indexOf(field) === -1) {
+        if (this.fields.indexOf(field) === -1 || !this.verdict.hasOwnProperty(field)) {
             return '';
         }
-
         return this.verdict[field].errors[0] || '';
     }
 
