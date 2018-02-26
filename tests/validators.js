@@ -199,4 +199,16 @@ describe('Validators', () => {
             assert.equal(validator.verdict.field[rule].passed, false);
         });
     });
+
+    describe('Error messages have nicely formatted names', () => {
+        const rule = 'required';
+
+        it('field names are formatted nicely', () => {
+            const validator = validation.validate({unfriendly_field_name: ''}, {unfriendly_field_name: 'required'});
+            assert.equal(
+                validator.verdict.unfriendly_field_name[rule].error,
+                'The unfriendly field name field is required'
+            );
+        });
+    });
 });

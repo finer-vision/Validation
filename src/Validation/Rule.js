@@ -47,10 +47,13 @@ export default class Rule {
         }
 
         // Add input to beginning of args array.
-        args.unshift(Utils.clean(input));
+        args.unshift(Utils.cleanInput(input));
 
         // Add message to end of array.
         args.push(message);
+
+        // Format name
+        args[1] = Utils.cleanName(args[1]);
 
         return Validators[rule](...args);
     }
