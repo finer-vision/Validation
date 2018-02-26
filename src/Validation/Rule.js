@@ -7,7 +7,7 @@ const ARGUMENT_SEPARATOR = ',';
 
 export default class Rule {
     /**
-     * Parse the rule string (e.g. required,email,max:255)
+     * Parse the rule string (e.g. required|max:255|in:1,2,3)
      * and return the rules.
      *
      * @param {String} rulesString
