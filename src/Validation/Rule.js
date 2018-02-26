@@ -40,6 +40,8 @@ export default class Rule {
      */
     static test(rule, args, input, message) {
         if (!Validators.hasOwnProperty(rule)) {
+            console.error(`Rule ${rule} does not exist`);
+
             return {
                 passed: false,
                 error: 'Failed validation'
