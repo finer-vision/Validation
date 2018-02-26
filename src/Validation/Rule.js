@@ -41,7 +41,7 @@ export default class Rule {
     static test(rule, args, input, message) {
         if (!Validators.hasOwnProperty(rule)) {
             return {
-                padded: false,
+                passed: false,
                 error: 'Failed validation'
             };
         }
