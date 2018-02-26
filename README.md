@@ -96,3 +96,27 @@ Values must me a valid US postcode.
 
 Usage: 'us_postcode'
 
+#### Checked
+Value must be checked
+
+Usage: 'checked'
+
+#### Words Min (number)
+Value words length must be equal to or greater than the given number.
+
+Usage: 'words_min:5'
+
+#### Words Max (number)
+Value words length must be equal to or less than the given number.
+
+Usage: 'words_max:5'
+
+#### File Min (number)
+File size must be equal to or greater than the given number in MB.
+
+Usage: 'file_min:5'
+
+#### File Max (number)
+File size must be equal to or less than the given number in MB.
+
+Usage: 'file_max:5'

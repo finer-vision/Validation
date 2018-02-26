@@ -3,6 +3,15 @@ import Validation from "../src/index";
 
 const validation = new Validation;
 
+// Fake file instance.
+const fileSmall = {
+    size: 1000000 // 1MB in bytes
+};
+
+const fileLarge = {
+    size: 20000000 // 20MB in bytes
+};
+
 describe('Validators', () => {
     describe('Required', () => {
         const rule = 'required';
@@ -197,6 +206,34 @@ describe('Validators', () => {
         it('fails validation if the field has more than 3 words', () => {
             const validator = validation.validate({field: 'one two three four'}, {field: 'words_max:3'});
             assert.equal(validator.verdict.field[rule].passed, false);
+        });
+    });
+
+    describe('File Max', () => {
+        const rule = 'file_max';
+
+        it('passes validation if the file size is less than or equal to 5MB', () => {
+            const validator = validation.validate({file: fileSmall}, {file: 'file_max:5'});
+            assert.equal(validator.verdict.file[rule].passed, true);
+        });
+
+        it('fails validation if the file size is more than 5MB', () => {
+            const validator = validation.validate({file: fileLarge}, {file: 'file_max:5'});
+            assert.equal(validator.verdict.file[rule].passed, false);
+        });
+    });
+
+    describe('File Min', () => {
+        const rule = 'file_min';
+
+        it('passes validation if the file size is more than or equal to 5MB', () => {
+            const validator = validation.validate({file: fileLarge}, {file: 'file_min:5'});
+            assert.equal(validator.verdict.file[rule].passed, true);
+        });
+
+        it('fails validation if the file size is less than 5MB', () => {
+            const validator = validation.validate({file: fileSmall}, {file: 'file_min:5'});
+            assert.equal(validator.verdict.file[rule].passed, false);
         });
     });
 

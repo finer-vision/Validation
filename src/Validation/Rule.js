@@ -48,8 +48,11 @@ export default class Rule {
             };
         }
 
+        // Don't clean objects.
+        input = typeof input === 'object' ? input : Utils.cleanInput(input);
+
         // Add input to beginning of args array.
-        args.unshift(Utils.cleanInput(input));
+        args.unshift(input);
 
         // Add message to end of array.
         args.push(message);

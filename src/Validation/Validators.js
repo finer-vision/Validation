@@ -82,5 +82,19 @@ export default {
             passed: input.split(/\s+/).length <= value,
             error: message || `The ${name} field must be ${value} or less words`
         };
+    },
+    file_max(file, name, value, message) {
+        const size = file.size === 0 ? 0.01 : file.size;
+        return {
+            passed: ((size / 1024) / 1024).toFixed(4) <= Number(value),
+            error: message || `The ${name} field must be ${value}MB or less in size`
+        };
+    },
+    file_min(file, name, value, message) {
+        const size = file.size === 0 ? 0.01 : file.size;
+        return {
+            passed: ((size / 1024) / 1024).toFixed(4) >= Number(value),
+            error: message || `The ${name} field must be ${value}MB or less in size`
+        };
     }
 }
