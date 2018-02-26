@@ -2,18 +2,22 @@
 
 Laravel inspired, dependency-free, JavaScript validation library.
 
+## Installation
+
+```bash
+npm install --save fv-validation
+```
+
 ## Usage
 
 ```js
 import Validation from "fv-validation";
 
 // Add a validation rule
-Validation.addRule('in', (input, name, values) => {
-    return {
-        passed: values.indexOf(input) > -1,
-        error: `The ${name} field must contain one of these values ${values.join(',')}`
-    };
-});
+Validation.addRule('in', (input, name, values) => ({
+    passed: values.indexOf(input) > -1,
+    error: `The ${name} field must contain one of these values ${values.join(',')}`
+}));
 
 const input = {
     name: 'Finer Vision',
