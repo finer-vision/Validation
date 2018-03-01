@@ -1,7 +1,14 @@
 export default {
     required(input, name, message) {
+        let passed = input.length > 0;
+
+        // Test files
+        if (typeof input === 'object') {
+            passed = input && input.size;
+        }
+
         return {
-            passed: input.length > 0,
+            passed,
             error: message || `The ${name} field is required`
         };
     },
@@ -87,15 +94,15 @@ export default {
         let size = file.size === 0 ? 0.01 : file.size;
         size = parseFloat(((size / 1024) / 1024).toFixed(4));
         return {
-            passed: size <= Number(value),
+            passed: size <= parseFloat(value),
             error: message || `The ${name} field must be ${value}MB or less in size`
         };
     },
     file_min(file, name, value, message) {
         let size = file.size === 0 ? 0.01 : file.size;
-        size = ((size / 1024) / 1024).toFixed(4);
+        size = parseFloat(((size / 1024) / 1024).toFixed(4));
         return {
-            passed: size >= Number(value),
+            passed: size >= parseFloat(value),
             error: message || `The ${name} field must be ${value}MB or less in size`
         };
     }

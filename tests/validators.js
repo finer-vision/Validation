@@ -25,6 +25,11 @@ describe('Validators', () => {
             const validator = validation.validate({field: ''}, {field: 'required'});
             assert.equal(validator.verdict.field[rule].passed, false);
         });
+
+        it('passed validation if the field has a value and is a file', () => {
+            const validator = validation.validate({file: fileSmall}, {file: 'required'});
+            assert.equal(validator.verdict.file[rule].passed, true);
+        });
     });
 
     describe('Min', () => {
