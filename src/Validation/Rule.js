@@ -71,8 +71,6 @@ export default class Rule {
      * @param {Function} validator
      */
     static add(rule, validator) {
-        if (!Validators.hasOwnProperty(rule)) {
-            Validators[rule] = validator;
-        }
+        Validators[rule] = validator;
     }
 }
