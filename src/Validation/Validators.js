@@ -101,7 +101,7 @@ export default {
     },
     number(input, name, message) {
         return {
-            passed: input.length === 0 || /\d+/.test(input),
+            passed: input.length === 0 || /^\d+$/.test(input),
             error: message || `The ${name} field must be a number`
         };
     }

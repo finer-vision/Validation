@@ -262,14 +262,19 @@ describe('Validators', () => {
             assert.equal(validator.verdict.field[rule].passed, true);
         });
 
+        it('passes validation if the field is a number that is zero', () => {
+            const validator = validation.validate({field: '0'}, {field: 'number'});
+            assert.equal(validator.verdict.field[rule].passed, true);
+        });
+
         it('fails validation if the field is not a number', () => {
             const validator = validation.validate({field: 'twenty'}, {field: 'number'});
             assert.equal(validator.verdict.field[rule].passed, false);
         });
 
-        it('passes validation if the field is a number that is zero', () => {
-            const validator = validation.validate({field: '0'}, {field: 'number'});
-            assert.equal(validator.verdict.field[rule].passed, true);
+        it('fails validation if the field starts with a number but contains non-numbers', () => {
+            const validator = validation.validate({field: '2two'}, {field: 'number'});
+            assert.equal(validator.verdict.field[rule].passed, false);
         });
     });
 });
