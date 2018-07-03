@@ -1,9 +1,7 @@
 export default {
     required(input, name, message) {
-        const passed = typeof input === 'object' ? (input && input.size > 0) : input.length > 0;
-
         return {
-            passed,
+            passed: typeof input === 'object' ? (input && input.size > 0) : input.length > 0,
             error: message || `The ${name} field is required`
         };
     },
