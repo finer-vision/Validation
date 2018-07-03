@@ -98,5 +98,11 @@ export default {
             passed: size >= parseFloat(value),
             error: message || `The ${name} field must be ${value}MB or less in size`
         };
+    },
+    number(input, name, message) {
+        return {
+            passed: input.length === 0 || /\d+/.test(input),
+            error: message || `The ${name} field must be a number`
+        };
     }
 }

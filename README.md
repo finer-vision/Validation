@@ -120,3 +120,8 @@ Usage: 'file_min:5'
 File size must be equal to or less than the given number in MB.
 
 Usage: 'file_max:5'
+
+#### Number (number)
+File size must be a number.
+
+Usage: 'number'

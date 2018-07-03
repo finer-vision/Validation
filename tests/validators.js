@@ -253,4 +253,23 @@ describe('Validators', () => {
             );
         });
     });
+
+    describe('Number', () => {
+        const rule = 'number';
+
+        it('passes validation if the field is a number', () => {
+            const validator = validation.validate({field: '20'}, {field: 'number'});
+            assert.equal(validator.verdict.field[rule].passed, true);
+        });
+
+        it('fails validation if the field is not a number', () => {
+            const validator = validation.validate({field: 'twenty'}, {field: 'number'});
+            assert.equal(validator.verdict.field[rule].passed, false);
+        });
+
+        it('passes validation if the field is a number that is zero', () => {
+            const validator = validation.validate({field: '0'}, {field: 'number'});
+            assert.equal(validator.verdict.field[rule].passed, true);
+        });
+    });
 });
