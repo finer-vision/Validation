@@ -6,10 +6,10 @@
   "scripts": {
     "dev-examples": "node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "build-examples": "node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register tests/",
-    "tdd": "./node_modules/.bin/mocha --watch --compilers js:babel-core/register tests/",
-    "coverage": "./node_modules/.bin/nyc ./node_modules/.bin/mocha --compilers js:babel-core/register tests/",
-    "prepublishOnly": "node_modules/babel-cli/bin/babel.js src/ -d build"
+    "test": "node_modules/.bin/mocha --compilers js:babel-core/register tests/",
+    "tdd": "node_modules/.bin/mocha --watch --compilers js:babel-core/register tests/",
+    "coverage": "node_modules/.bin/nyc node_modules/.bin/mocha --compilers js:babel-core/register tests/",
+    "prepublishOnly": "node_modules/babel-cli/bin/babel.js --preset es2015 src/ -d build"
   },
   "repository": {
     "type": "git",
