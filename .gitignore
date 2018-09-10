@@ -1,7 +1,5 @@
-.idea/
-node_modules/
-build/
+/.idea/
+/node_modules/
+/build/
 .DS_Store
 *.log
-.nyc_output/
-mix-manifest.json
