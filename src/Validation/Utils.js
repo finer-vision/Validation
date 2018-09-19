@@ -1,4 +1,4 @@
-export default class {
+export default class Utils {
     /**
      * Clean the given input.
      *
