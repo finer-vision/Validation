@@ -278,4 +278,18 @@ describe('Validators', () => {
             assert.equal(validator.verdict.field[rule].passed, false);
         });
     });
+
+    describe('Matches', () => {
+        const rule = 'matches';
+
+        it('passes validation if the field matches another field', () => {
+            const validator = validation.validate({fieldA: '20', fieldB: '20'}, {fieldA: 'matches:fieldB'});
+            assert.equal(validator.verdict.fieldA[rule].passed, true);
+        });
+
+        it("fails validation if the field doesn't match the another field", () => {
+            const validator = validation.validate({fieldA: '20', fieldB: '21'}, {fieldA: 'matches:fieldB'});
+            assert.equal(validator.verdict.fieldA[rule].passed, false);
+        });
+    });
 });

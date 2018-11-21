@@ -14,7 +14,7 @@ npm install --save fv-validation
 import Validation from "fv-validation";
 
 // Add a validation rule
-Validation.addRule('in', (input, name, values) => ({
+Validation.addRule('in', (inputs, input, name, values) => ({
     passed: values.indexOf(input) > -1,
     error: `The ${name} field must contain one of these values ${values.join(',')}`
 }));

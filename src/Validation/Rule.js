@@ -32,13 +32,14 @@ export default class Rule {
     /**
      * Test the given input against the given rule.
      *
+     * @param {Object} inputs
      * @param {String} rule
      * @param {Array} args
      * @param {String} input
      * @param {String=} message
      * @returns {Object}
      */
-    static test(rule, args, input, message) {
+    static test(inputs, rule, args, input, message) {
         if (!Validators.hasOwnProperty(rule)) {
             console.error(`Rule ${rule} does not exist`);
 
@@ -60,7 +61,7 @@ export default class Rule {
         // Format name
         args[1] = Utils.cleanName(args[1]);
 
-        return Validators[rule](...args);
+        return Validators[rule](inputs, ...args);
     }
 
     /**

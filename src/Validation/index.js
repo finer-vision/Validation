@@ -100,7 +100,7 @@ export default class Validation {
                 }
 
                 // Add result of test to verdict object.
-                verdict[field][rule] = Rule.test(rule, validation[field][rule], input[field], message);
+                verdict[field][rule] = Rule.test(input, rule, validation[field][rule], input[field], message);
             }
 
             verdict[field].errors = Error.getErrors(verdict[field]);
