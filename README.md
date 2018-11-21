@@ -14,9 +14,9 @@ npm install --save fv-validation
 import Validation from "fv-validation";
 
 // Add a validation rule
-Validation.addRule('in', (inputs, input, name, values) => ({
+Validation.addRule('in', (inputs, input, name, values, message) => ({
     passed: values.indexOf(input) > -1,
-    error: `The ${name} field must contain one of these values ${values.join(',')}`
+    error: message || `The ${name} field must contain one of these values ${values.join(',')}`
 }));
 
 const input = {
@@ -29,8 +29,14 @@ const rules = {
     email: 'required|email|max:255'
 };
 
+const messages = {
+    name: {
+        required: 'Please enter your name 👆',
+    },
+};
+
 const validation = new Validation;
-validation.validate(input, rules);
+validation.validate(input, rules, messages);
 
 // All errors for all fields
 console.log(validation.getErrors());
