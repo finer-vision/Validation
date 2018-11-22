@@ -18,4 +18,17 @@ export default class Utils {
     static cleanName(name) {
         return String(name).split(/[_|-]+/).join(' ');
     }
+
+    /**
+     * Returns an empty string if given input is undefined or null.
+     *
+     * @param {*} input
+     * @return {*}
+     */
+    static empty(input) {
+        if (input === undefined || input === null) {
+            return '';
+        }
+        return input;
+    }
 }

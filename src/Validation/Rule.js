@@ -51,6 +51,7 @@ export default class Rule {
 
         // Don't clean objects.
         input = typeof input === 'object' ? input : Utils.cleanInput(input);
+        input = Utils.empty(input);
 
         // Add input to beginning of args array.
         args.unshift(input);
