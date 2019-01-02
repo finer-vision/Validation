@@ -19,6 +19,22 @@ export default class Validation {
     }
 
     /**
+     * Get all errors for each field.
+     *
+     * @returns {Object}
+     */
+    getNamesErrors() {
+        const errors = {};
+        for (let field in this.verdict) {
+            if (!this.verdict.hasOwnProperty(field)) {
+                continue;
+            }
+            errors[field] = this.verdict[field].errors;
+        }
+        return errors;
+    }
+
+    /**
      * Get all errors for a given field (if specified, else get
      * all errors for all fields).
      *

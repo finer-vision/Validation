@@ -1,6 +1,6 @@
 {
   "name": "fv-validation",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "JavaScript Validation",
   "main": "build/index.js",
   "scripts": {
