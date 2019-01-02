@@ -23,7 +23,7 @@ export default class Validation {
      *
      * @returns {Object}
      */
-    getNamesErrors() {
+    getNamedErrors() {
         const errors = {};
         for (let field in this.verdict) {
             if (!this.verdict.hasOwnProperty(field)) {
