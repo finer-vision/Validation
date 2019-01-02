@@ -131,3 +131,8 @@ Usage: 'file_max:5'
 File size must be a number.
 
 Usage: 'number'
+
+#### Matches (field)
+Value matches given field value
+
+Usage: 'matches:field'
