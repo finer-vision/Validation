@@ -27,6 +27,11 @@ describe('Validators', () => {
             assert.equal(validator.verdict.field[rule].passed, false);
         });
 
+        it('fails validation if the field is not in the given inputs', () => {
+            const validator = validation.validate({}, {field: 'required'});
+            assert.equal(validator.verdict.field[rule].passed, false);
+        });
+
         it('passed validation if the field has a value and is a file', () => {
             const validator = validation.validate({file: fileSmall}, {file: 'required'});
             assert.equal(validator.verdict.file[rule].passed, true);

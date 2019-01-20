@@ -84,8 +84,9 @@ export default class Validation {
                 continue;
             }
 
+            // Ensure all fields have at least an empty value
             if (!input.hasOwnProperty(rule)) {
-                continue;
+                input[rule] = '';
             }
 
             // Add parsed rules for input inside validation object.
