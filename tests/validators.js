@@ -88,6 +88,11 @@ describe('Validators', () => {
             assert.equal(validator.verdict.field[rule].passed, true);
         });
 
+        it('passes validation if complex regex is set', () => {
+            const validator = validation.validate({field: 'A'}, {field: 'pattern:^[a-z|A-Z]$'});
+            assert.equal(validator.verdict.field[rule].passed, true);
+        });
+
         it('fails validation if the field does not match the pattern', () => {
             const validator = validation.validate({field: 'four'}, {field: 'pattern:^\\d{4}$'});
             assert.equal(validator.verdict.field[rule].passed, false);

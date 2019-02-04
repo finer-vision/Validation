@@ -16,9 +16,10 @@ export default class Rule {
      */
     static parse(rulesString, name) {
         const rules = {};
+        const rulesRegex = new RegExp(`${'\\' . RULE_SEPARATOR}(?=(${Object.keys(Validators).join('|')}))`);
 
         // Construct all rules, with their args.
-        rulesString.split(RULE_SEPARATOR).map(ruleString => {
+        rulesString.split(rulesRegex).map(ruleString => {
             const args = ruleString.split(PARAMETER_SEPARATOR).map(arg => arg.split(ARGUMENT_SEPARATOR));
 
             // Add rule, with args, to rules object.
