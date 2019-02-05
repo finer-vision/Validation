@@ -16,7 +16,7 @@ export default class Rule {
      */
     static parse(rulesString, name) {
         const rules = {};
-        const rulesRegex = new RegExp(`${'\\' . RULE_SEPARATOR}(?=(${Object.keys(Validators).join('|')}))`);
+        const rulesRegex = new RegExp(`${'\\' + RULE_SEPARATOR}(?=(${Object.keys(Validators).join('|')}))`);
 
         // Construct all rules, with their args.
         rulesString.split(rulesRegex).map(ruleString => {

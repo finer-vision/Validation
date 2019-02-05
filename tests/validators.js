@@ -302,4 +302,15 @@ describe('Validators', () => {
             assert.equal(validator.verdict.fieldA[rule].passed, false);
         });
     });
+
+    describe('Complex', () => {
+        it('passes validation for multiple complex rules', () => {
+            const validator = validation.validate({fieldA: '20', fieldB: '20'}, {
+                fieldA: 'required|min:2|matches:fieldB',
+            });
+            assert.equal(validator.verdict.fieldA['required'].passed, true);
+            assert.equal(validator.verdict.fieldA['min'].passed, true);
+            assert.equal(validator.verdict.fieldA['matches'].passed, true);
+        });
+    });
 });
