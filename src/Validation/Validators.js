@@ -89,7 +89,7 @@ export default {
         let size = file.size === 0 ? 0.01 : file.size;
         size = parseFloat(((size / 1024) / 1024).toFixed(4));
         return {
-            passed: file.size === 0 || size <= parseFloat(value),
+            passed: !file || file.size === 0 || size <= parseFloat(value),
             error: message || `The ${name} field must be ${value}MB or less in size`
         };
     },
@@ -97,7 +97,7 @@ export default {
         let size = file.size === 0 ? 0.01 : file.size;
         size = parseFloat(((size / 1024) / 1024).toFixed(4));
         return {
-            passed: file.size === 0 || size >= parseFloat(value),
+            passed: !file || file.size === 0 || size >= parseFloat(value),
             error: message || `The ${name} field must be ${value}MB or less in size`
         };
     },
