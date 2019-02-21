@@ -31,4 +31,12 @@ export default class Utils {
         }
         return input;
     }
+
+    static getFileSize(file) {
+        if (!file || typeof file !== 'object') {
+            return 0;
+        }
+        const size = file.size === 0 ? 0.01 : file.size;
+        return parseFloat(((size / 1024) / 1024).toFixed(4));
+    }
 }

@@ -86,18 +86,16 @@ export default {
         };
     },
     file_max(inputs, file, name, value, message) {
-        let size = file.size === 0 ? 0.01 : file.size;
-        size = parseFloat(((size / 1024) / 1024).toFixed(4));
+        const size = Utils.getFileSize(file);
         return {
-            passed: !file || file.size === 0 || size <= parseFloat(value),
+            passed: !file || size === 0 || size <= parseFloat(value),
             error: message || `The ${name} field must be ${value}MB or less in size`
         };
     },
     file_min(inputs, file, name, value, message) {
-        let size = file.size === 0 ? 0.01 : file.size;
-        size = parseFloat(((size / 1024) / 1024).toFixed(4));
+        const size = Utils.getFileSize(file);
         return {
-            passed: !file || file.size === 0 || size >= parseFloat(value),
+            passed: !file || size === 0 || size >= parseFloat(value),
             error: message || `The ${name} field must be ${value}MB or less in size`
         };
     },
