@@ -1,7 +1,7 @@
 import Rule from "./Rule";
 import Error from "./Error";
 
-module.exports = class Validation {
+export default class Validation {
     constructor() {
         this.errors = [];
         this.fields = [];
