@@ -4,5 +4,13 @@
   ],
   "ignore": [
     "node_modules"
+  ],
+  "plugins": [
+    [
+      "add-module-exports",
+      {
+        "addDefaultProperty": true
+      }
+    ]
   ]
 }
