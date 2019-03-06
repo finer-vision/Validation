@@ -1,16 +1,16 @@
 {
   "presets": [
-    "@babel/preset-env"
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ]
   ],
   "ignore": [
     "node_modules"
   ],
   "plugins": [
-    [
-      "add-module-exports",
-      {
-        "addDefaultProperty": true
-      }
-    ]
+    "@babel/plugin-external-helpers"
   ]
 }
