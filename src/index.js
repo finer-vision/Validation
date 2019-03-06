@@ -1,7 +1,7 @@
 import Rule from "./Rule";
 import Error from "./Error";
 
-export default class Validation {
+class Validation {
     constructor() {
         this.errors = [];
         this.fields = [];
@@ -129,3 +129,5 @@ export default class Validation {
         return this;
     }
 }
+
+module.exports = Validation;

@@ -1,12 +1,12 @@
 {
   "name": "fv-validation",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "JavaScript Validation",
   "main": "build/index.js",
   "scripts": {
     "test": "npx mocha --compilers js:babel-core/register tests/",
     "tdd": "npx mocha --watch --compilers js:babel-core/register tests/",
-    "build": "npx rollup -c",
+    "build": "npx babel src -d build --copy-files",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -18,14 +18,7 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
-    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.3.4",
-    "babelrc-rollup": "^3.0.0",
-    "mocha": "^5.0.1",
-    "rollup": "^1.4.1",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-babel-minify": "^7.0.0",
-    "rollup-plugin-cleanup": "^3.1.1",
-    "rollup-plugin-commonjs": "^9.2.1"
+    "mocha": "^5.0.1"
   }
 }
