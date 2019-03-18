@@ -1,13 +1,3 @@
 {
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "modules": false
-      }
-    ]
-  ],
-  "ignore": [
-    "node_modules"
-  ]
+  "presets": [ "@babel/preset-env" ]
 }

@@ -1,7 +1,7 @@
 import Rule from "./Rule";
 import Error from "./Error";
 
-class Validation {
+export const Validation = class {
     constructor() {
         this.errors = [];
         this.fields = [];
@@ -128,8 +128,4 @@ class Validation {
 
         return this;
     }
-}
-
-export {Validation};
-
-export default Validation;
+};
