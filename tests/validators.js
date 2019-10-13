@@ -1,6 +1,6 @@
 import {equal} from "assert";
 import {describe, it} from "mocha";
-import {Validation} from "../src/index";
+import Validation from "../src/index";
 
 const validation = new Validation;
 
