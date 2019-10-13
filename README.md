@@ -11,7 +11,7 @@ npm install --save fv-validation
 ## Usage
 
 ```js
-import {Validation} from "fv-validation";
+import Validation from "fv-validation";
 
 // Add a validation rule
 Validation.addRule('in', (inputs, input, name, values, message) => ({
