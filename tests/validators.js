@@ -1,5 +1,5 @@
 import assert from "assert";
-import {describe} from "mocha";
+import {describe, it} from "mocha";
 import {Validation} from "../src/index";
 
 const validation = new Validation;
