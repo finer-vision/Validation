@@ -4,9 +4,8 @@
   "description": "JavaScript Validation",
   "main": "build/index.js",
   "scripts": {
-    "test": "npx mocha --require @babel/register tests",
-    "tdd": "npx mocha --watch --require @babel/register tests",
-    "build": "rm -rf build && npx babel src -d build",
+    "watch": "npx tsc --watch --outDir build",
+    "build": "rm -rf build && npx tsc --outDir build",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -21,6 +20,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.3.4",
     "@babel/register": "^7.0.0",
-    "mocha": "^5.0.1"
+    "mocha": "^5.0.1",
+    "typescript": "^3.7.3"
   }
 }
